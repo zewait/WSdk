@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.h4fan.wsdk.MainActivity">
+
+    <include
+        layout="@layout/app_bar"
+        android:id="@+id/app_bar" />
+
+    <in.srain.cube.views.ptr.PtrFrameLayout
+        android:id="@+id/ptr_frame"
+        android:layout_below="@id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/my_image_view"
+            android:layout_width="160px"
+            android:layout_height="wrap_content"
+            fresco:retryImage="@drawable/load_retry"
+            fresco:retryImageScaleType="centerCrop"
+            fresco:failureImage="@drawable/load_error"
+            fresco:failureImageScaleType="centerCrop"
+            fresco:placeholderImage="@mipmap/ic_launcher"
+            fresco:placeholderImageScaleType="centerCrop">
+
+        </com.facebook.drawee.view.SimpleDraweeView>
+
+    </in.srain.cube.views.ptr.PtrFrameLayout>
+</RelativeLayout>
