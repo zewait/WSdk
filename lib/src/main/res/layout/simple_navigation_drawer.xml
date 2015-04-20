@@ -18,7 +18,7 @@
             android:layout_height="match_parent" />
 
         <LinearLayout
-            android:id="@+id/drawer_view"
+            android:id="@+id/left_drawer_view"
             android:layout_width="240dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"

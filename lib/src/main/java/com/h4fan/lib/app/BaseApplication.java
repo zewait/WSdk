@@ -1,13 +1,11 @@
 package com.h4fan.lib.app;
 
 import android.app.Application;
-import android.content.Context;
 import android.view.ViewConfiguration;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.decoder.ProgressiveJpegConfig;
-import com.facebook.imagepipeline.decoder.SimpleProgressiveJpegConfig;
 import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import com.facebook.imagepipeline.image.QualityInfo;
 import com.h4fan.lib.entity.Screen;
@@ -20,17 +18,20 @@ import java.lang.reflect.Field;
  * Created by shifanhuang on 15/4/17.
  */
 public class BaseApplication extends Application {
+    private final static boolean DEBUG = true;
     @Override
     public void onCreate() {
         super.onCreate();
+
+        initLogger();
+
+
+        Screen.init(this, 320, 480, true);
+
         setHasPermanentMenuKey(false);
 
         initFresco();
 
-        Logger.init("WSdk")
-                .hideThreadInfo()
-                .setLogLevel(LogLevel.FULL);
-        Screen.init(this, 320, 480, true);
     }
 
 
@@ -45,6 +46,14 @@ public class BaseApplication extends Application {
         } catch(Exception e) {
             // Ignore
         }
+    }
+
+
+    private final void initLogger() {
+        Logger.init("WSdk")
+                .hideThreadInfo()
+                .setLogLevel(DEBUG ? LogLevel.FULL:LogLevel.NONE);
+
     }
 
     private final void initFresco() {

@@ -3,7 +3,7 @@ package com.h4fan.wsdk;
 import android.graphics.drawable.Animatable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.view.Menu;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.BaseControllerListener;
@@ -17,15 +17,33 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.h4fan.lib.app.NavigationDrawerActivity;
 import com.h4fan.lib.utl.ComponentUtil;
+import com.h4fan.wsdk.demo.fragmentbackstack.FragmentA;
+import com.h4fan.wsdk.dummy.DummyContent;
 import com.orhanobut.logger.Logger;
 
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 
-public class MainActivity extends NavigationDrawerActivity {
+public class MainActivity extends NavigationDrawerActivity implements LeftDrawerFragment.OnFragmentInteractionListener {
+
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setLeftDrawerView(LeftDrawerFragment.newInstance());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public void onFragmentInteraction(String id) {
+        mDrawerLayout.closeDrawer(mLeftDrawerView);
+        if(DummyContent.FRAGMENT_BACK_STACK.equals(id)) {
+            pushToContent(FragmentA.newInstance(null, null));
+            return;
+        }
     }
 
     private final void init() {

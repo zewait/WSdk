@@ -1,6 +1,7 @@
 package com.h4fan.lib.app;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -24,10 +25,35 @@ public class NavigationDrawerActivity extends ActionBarActivity {
     private boolean mUserLearnedDrawer = false;
     private boolean mFromSavedInstanceState = false;
 
-    private Toolbar mToolbar;
-    private DrawerLayout mDrawerLayout;
-    private ActionBarDrawerToggle mDrawerToggle;
-    private View mDrawerView;
+    protected Toolbar mToolbar;
+    protected DrawerLayout mDrawerLayout;
+    protected ActionBarDrawerToggle mDrawerToggle;
+    protected View mLeftDrawerView;
+
+    public final void setLeftDrawerView(Fragment f) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.left_drawer_view, f, "left_drawer")
+                .commit();
+    }
+
+    public final void setContent(Fragment f) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.content, f, "content")
+                .commit();
+    }
+
+    public final void pushToContent(Fragment f) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.content, f, "content")
+                .addToBackStack("content")
+                .commit();
+    }
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,19 +85,21 @@ public class NavigationDrawerActivity extends ActionBarActivity {
                 }
             }
         };
-        mDrawerToggle.syncState();
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
 
         if(!mUserLearnedDrawer && !mFromSavedInstanceState) {
-            mDrawerLayout.openDrawer(mDrawerView);
+            mDrawerLayout.openDrawer(mLeftDrawerView);
         }
 
+        mDrawerToggle.syncState();
     }
 
     private final void injectView() {
         mToolbar = (Toolbar) findViewById(R.id.app_bar);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerView = findViewById(R.id.drawer_view);
+        mLeftDrawerView = findViewById(R.id.left_drawer_view);
     }
+
+
 }
