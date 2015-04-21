@@ -19,6 +19,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".animation.AnimationActivity"
+            android:label="@string/title_activity_animation"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".animation.ZoomActivity"
+            android:label="@string/title_activity_zoom"
+            android:parentActivityName=".animation.AnimationActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".animation.AnimationActivity"/>
+        </activity>
     </application>
 
 </manifest>

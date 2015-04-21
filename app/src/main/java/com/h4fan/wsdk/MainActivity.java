@@ -1,5 +1,6 @@
 package com.h4fan.wsdk;
 
+import android.content.Intent;
 import android.graphics.drawable.Animatable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.h4fan.lib.app.NavigationDrawerActivity;
 import com.h4fan.lib.utl.ComponentUtil;
+import com.h4fan.wsdk.animation.AnimationActivity;
 import com.h4fan.wsdk.demo.fragmentbackstack.FragmentA;
 import com.h4fan.wsdk.dummy.DummyContent;
 import com.orhanobut.logger.Logger;
@@ -42,6 +44,11 @@ public class MainActivity extends NavigationDrawerActivity implements LeftDrawer
         mDrawerLayout.closeDrawer(mLeftDrawerView);
         if(DummyContent.FRAGMENT_BACK_STACK.equals(id)) {
             pushToContent(FragmentA.newInstance(null, null));
+            return;
+        }
+
+        if(DummyContent.ANIMATION.equals(id)) {
+            startActivity(new Intent(this, AnimationActivity.class));
             return;
         }
     }

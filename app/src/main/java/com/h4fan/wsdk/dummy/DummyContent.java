@@ -13,6 +13,7 @@ import java.util.Map;
  */
 public class DummyContent {
     public static final String FRAGMENT_BACK_STACK = "fbs";
+    public static final String ANIMATION = "animation";
 
     /**
      * An array of sample (dummy) items.
@@ -27,7 +28,7 @@ public class DummyContent {
     static {
         // Add 3 sample items.
         addItem(new DummyItem(FRAGMENT_BACK_STACK, "Fragment Transaction BackStack"));
-        addItem(new DummyItem("2", "Item 2"));
+        addItem(new DummyItem(ANIMATION, ANIMATION));
         addItem(new DummyItem("3", "Item 3"));
     }
 

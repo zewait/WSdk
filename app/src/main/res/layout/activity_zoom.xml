@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.h4fan.wsdk.animation.ZoomActivity">
+
+    <include
+        layout="@layout/app_bar"
+        android:id="@+id/app_bar" />
+
+    <LinearLayout
+        android:layout_below="@id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <com.h4fan.lib.widget.TouchHighlightImageButton
+            android:id="@+id/thumb_button_1"
+            android:layout_marginRight="2dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/thumb1"
+            android:layout_width="100dp"
+            android:layout_height="70dp" />
+
+        <com.h4fan.lib.widget.TouchHighlightImageButton
+            android:id="@+id/thumb_button_2"
+            android:layout_marginRight="1dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/thumb2"
+            android:layout_width="100dp"
+            android:layout_height="70dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/expanded_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>
