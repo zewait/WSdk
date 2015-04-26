@@ -1,40 +1,37 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:polites="http://schemas.polites.com/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.h4fan.wsdk.animation.ZoomActivity">
 
-    <include
-        android:id="@+id/app_bar"
-        layout="@layout/app_bar" />
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/app_bar"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <com.h4fan.lib.widget.TouchHighlightImageButton
-            android:id="@+id/thumb_button_1"
-            android:layout_width="100dp"
-            android:layout_height="70dp"
-            android:layout_marginRight="2dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/thumb1" />
+        <include
+            android:id="@+id/app_bar"
+            layout="@layout/app_bar" />
 
-        <com.h4fan.lib.widget.TouchHighlightImageButton
-            android:id="@+id/thumb_button_2"
-            android:layout_width="100dp"
-            android:layout_height="70dp"
-            android:layout_marginRight="1dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/thumb2" />
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/app_bar"
+            android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/expanded_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/thumb_button_1"
+                android:layout_width="100dp"
+                android:layout_height="70dp" />
 
-</RelativeLayout>
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/thumb_button_2"
+                android:layout_width="100dp"
+                android:layout_height="70dp"
+                android:layout_marginRight="2dp" />
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

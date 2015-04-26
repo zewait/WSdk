@@ -32,6 +32,7 @@ public class AnimationActivity extends ActionBarActivity implements AdapterView.
         injectView();
 
         mSamples.add(new Sample("ZoomView", ZoomActivity.class));
+        mSamples.add(new Sample("Simple Crossfade", CrossfadeActivity.class));
 
         mList.setAdapter(new ArrayAdapter<Sample>(this, android.R.layout.simple_list_item_1, mSamples));
         mList.setOnItemClickListener(this);

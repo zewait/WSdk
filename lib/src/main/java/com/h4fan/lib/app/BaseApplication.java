@@ -19,6 +19,12 @@ import java.lang.reflect.Field;
  */
 public class BaseApplication extends Application {
     private final static boolean DEBUG = true;
+    private static BaseApplication mInstance;
+
+    public BaseApplication() {
+        this.mInstance = this;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -34,6 +40,9 @@ public class BaseApplication extends Application {
 
     }
 
+    public final static BaseApplication getInstance() {
+        return mInstance;
+    }
 
     public final void setHasPermanentMenuKey(boolean flag) {
         try {
@@ -74,4 +83,6 @@ public class BaseApplication extends Application {
                 .build();
         Fresco.initialize(this, config);
     }
+
+
 }

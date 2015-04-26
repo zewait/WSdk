@@ -30,9 +30,22 @@
         <activity
             android:name=".animation.ZoomActivity"
             android:label="@string/title_activity_zoom"
-            android:parentActivityName=".animation.AnimationActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".animation.AnimationActivity"/>
+            android:parentActivityName=".animation.AnimationActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".animation.AnimationActivity" />
+        </activity>
+        <activity
+            android:name=".animation.CrossfadeActivity"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:parentActivityName=".animation.AnimationActivity"
+            android:label="@string/title_activity_crossfade" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".animation.AnimationActivity" />
+            <meta-data
+                android:name="android.support.UI_OPTIONS"
+                android:value="splitActionBarWhenNarrow" />
         </activity>
     </application>
 
